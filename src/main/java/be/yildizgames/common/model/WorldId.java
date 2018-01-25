@@ -116,17 +116,17 @@ public final class WorldId {
     }
 
     @Override
-    public final boolean equals(Object o) {
+    public boolean equals(Object o) {
         return this == o || !(o == null || getClass() != o.getClass()) && value == ((WorldId) o).value;
     }
 
     @Override
-    public final int hashCode() {
+    public int hashCode() {
         return value;
     }
 
     @Override
-    public final String toString() {
+    public String toString() {
         return String.valueOf(this.value);
     }
 }
