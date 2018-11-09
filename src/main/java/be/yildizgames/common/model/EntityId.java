@@ -24,6 +24,8 @@
 
 package be.yildizgames.common.model;
 
+import be.yildizgames.common.exception.implementation.ImplementationException;
+
 import java.io.Serializable;
 import java.security.InvalidParameterException;
 import java.util.HashMap;
@@ -98,6 +100,7 @@ public final class EntityId implements Serializable {
      * @return <code>true</code> if Id matches world Id.
      */
     public static boolean isWorld(final EntityId id) {
+        ImplementationException.throwForNull(id);
         return id.value == EntityId.WORLD_VALUE;
     }
 

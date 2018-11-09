@@ -24,6 +24,7 @@
 
 package be.yildizgames.common.model;
 
+import be.yildizgames.common.exception.implementation.ImplementationException;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
@@ -65,7 +66,7 @@ class WorldIdTest {
 
         @Test
         void withNull() {
-            assertThrows(AssertionError.class, () -> WorldId.isWorld(null));
+            assertThrows(ImplementationException.class, () -> WorldId.isWorld(null));
         }
     }
 

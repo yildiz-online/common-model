@@ -24,6 +24,7 @@
 
 package be.yildizgames.common.model;
 
+import be.yildizgames.common.exception.implementation.ImplementationException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -105,7 +106,7 @@ class ActionIdTest {
 
         @Test
         void fromIdNull() {
-            Assertions.assertThrows(IllegalArgumentException.class, () -> ActionId.isWorld(null));
+            Assertions.assertThrows(ImplementationException.class, () -> ActionId.isWorld(null));
         }
 
         @Test

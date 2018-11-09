@@ -24,6 +24,8 @@
 
 package be.yildizgames.common.model;
 
+import be.yildizgames.common.exception.implementation.ImplementationException;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -86,7 +88,7 @@ public final class PlayerId {
      * @return <code>true</code> if Id matches world Id.
      */
     public static boolean isWorld(final PlayerId id) {
-        assert id != null;
+        ImplementationException.throwForNull(id);
         return id.value == PlayerId.WORLD_VALUE;
     }
 

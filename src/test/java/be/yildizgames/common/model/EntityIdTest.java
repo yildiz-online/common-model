@@ -24,6 +24,7 @@
 
 package be.yildizgames.common.model;
 
+import be.yildizgames.common.exception.implementation.ImplementationException;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
@@ -74,7 +75,7 @@ final class EntityIdTest {
         assertFalse(EntityId.valueOf(5L).isWorld());
         assertFalse(EntityId.isWorld(1));
         assertFalse(EntityId.isWorld(EntityId.valueOf(1L)));
-        assertThrows(NullPointerException.class, () -> EntityId.isWorld(null));
+        assertThrows(ImplementationException.class, () -> EntityId.isWorld(null));
     }
 
     /***/

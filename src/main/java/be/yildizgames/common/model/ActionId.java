@@ -24,6 +24,8 @@
 
 package be.yildizgames.common.model;
 
+import be.yildizgames.common.exception.implementation.ImplementationException;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -82,12 +84,10 @@ public class ActionId {
      *
      * @param id Id to check.
      * @return <code>true</code> if Id matches world Id.
-     * @throws IllegalArgumentException If id is null.
+     * @throws ImplementationException If id is null.
      */
     public static boolean isWorld(final ActionId id) {
-        if(id == null) {
-            throw new IllegalArgumentException("Id cannot be null.");
-        }
+        ImplementationException.throwForNull(id);
         return id.value == ActionId.WORLD_VALUE;
     }
 
