@@ -80,7 +80,7 @@ public final class Version {
         this.rev = rev;
     }
 
-    public static Version fromString(String value) {
+    public static Version parse(String value) {
         String[] values = value.split("\\.");
         switch (values[0].toLowerCase()) {
             case "alpha":
