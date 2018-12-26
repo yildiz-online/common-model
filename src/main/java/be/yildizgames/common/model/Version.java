@@ -80,6 +80,18 @@ public final class Version {
         this.rev = rev;
     }
 
+    public static Version parse(String value) {
+        String[] values = value.split("\\.");
+        switch (values[0].toLowerCase()) {
+            case "alpha":
+                return alpha(Integer.valueOf(values[1]), Integer.valueOf(values[2]),Integer.valueOf(values[3]),Integer.valueOf(values[4]));
+            case "beta":
+                return beta(Integer.valueOf(values[1]), Integer.valueOf(values[2]),Integer.valueOf(values[3]),Integer.valueOf(values[4]));
+                default:
+                    return release(Integer.valueOf(values[1]), Integer.valueOf(values[2]),Integer.valueOf(values[3]),Integer.valueOf(values[4]));
+        }
+    }
+
     public static Version alpha(int major, int minor, int sub, int rev) {
         return new Version(VersionType.ALPHA, major, minor, sub, rev);
     }
