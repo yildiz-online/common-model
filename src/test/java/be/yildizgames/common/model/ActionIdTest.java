@@ -36,20 +36,20 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 /**
  * @author Grégory Van den Borre
  */
-class ActionIdTest {
+public class ActionIdTest {
 
     @Nested
-    class Get {
+    public class Get {
 
         @Test
-        void happyFlow() {
+        public void happyFlow() {
             ActionId id = ActionId.valueOf(1000);
             Assertions.assertNotNull(id);
             assertEquals(1000, id.value);
         }
 
         @Test
-        void cached() {
+        public void cached() {
             ActionId id = ActionId.valueOf(2000);
             ActionId id2 = ActionId.valueOf(2000);
             Assertions.assertTrue(id == id2);
@@ -57,17 +57,17 @@ class ActionIdTest {
     }
 
     @Nested
-    class ValueOf {
+    public class ValueOf {
 
         @Test
-        void happyFlow() {
+        public void happyFlow() {
             ActionId id = ActionId.valueOf(1000);
             Assertions.assertNotNull(id);
             assertEquals(1000, id.value);
         }
 
         @Test
-        void cached() {
+        public void cached() {
             ActionId id = ActionId.valueOf(2000);
             ActionId id2 = ActionId.valueOf(2000);
             Assertions.assertTrue(id == id2);
@@ -75,67 +75,67 @@ class ActionIdTest {
     }
 
     @Nested
-    class IsWorld {
+    public class IsWorld {
 
         @Test
-        void happyFlow() {
+        public void happyFlow() {
             ActionId id = ActionId.WORLD;
             assertTrue(id.isWorld());
         }
 
         @Test
-        void not() {
+        public void not() {
             ActionId id = ActionId.valueOf(5);
             assertFalse(id.isWorld());
         }
 
         @Test
-        void fromId() {
+        public void fromId() {
             assertTrue(ActionId.isWorld(ActionId.WORLD));
         }
 
         @Test
-        void fromInt() {
+        public void fromInt() {
             assertTrue(ActionId.isWorld(ActionId.WORLD.value));
         }
 
         @Test
-        void fromIdNot() {
+        public void fromIdNot() {
             assertFalse(ActionId.isWorld(ActionId.valueOf(2)));
         }
 
         @Test
-        void fromIdNull() {
+        public void fromIdNull() {
             Assertions.assertThrows(ImplementationException.class, () -> ActionId.isWorld(null));
         }
 
         @Test
-        void fromIntNot() {
+        public void fromIntNot() {
             assertFalse(ActionId.isWorld(4));
         }
     }
 
     @Nested
-    class IsNegative {
+    public class IsNegative {
 
         @Test
-        void happyFlow() {
+        public void happyFlow() {
             ActionId id = ActionId.valueOf(-1);
             assertTrue(id.isNegative());
         }
 
         @Test
-        void not() {
+        public void not() {
             ActionId id = ActionId.valueOf(5);
             assertFalse(id.isNegative());
         }
     }
 
     @Nested
-    class HashCode {
+    public class HashCode {
 
         @Test
-        void happyFlow() {
+        public void happyFlow() {
             ActionId id = ActionId.valueOf(5);
             ActionId id2 = ActionId.valueOf(5);
             assertEquals(id.hashCode(), id2.hashCode());
@@ -143,17 +143,17 @@ class ActionIdTest {
     }
 
     @Nested
-    class Equals {
+    public class Equals {
 
         @Test
-        void happyFlow() {
+        public void happyFlow() {
             ActionId id = ActionId.valueOf(5);
             ActionId id2 = ActionId.valueOf(5);
             assertEquals(id, id2);
         }
 
         @Test
-        void notSame() {
+        public void notSame() {
             ActionId id = ActionId.valueOf(5);
             ActionId id2 = ActionId.valueOf(6);
             Assertions.assertNotEquals(id, id2);
@@ -161,10 +161,10 @@ class ActionIdTest {
     }
 
     @Nested
-    class ToString {
+    public class ToString {
 
         @Test
-        void happyFlow() {
+        public void happyFlow() {
             ActionId id = ActionId.valueOf(8);
             assertEquals("8", id.toString());
         }

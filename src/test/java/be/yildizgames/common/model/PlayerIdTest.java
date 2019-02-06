@@ -37,136 +37,136 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 /**
  * @author Grégory Van den Borre
  */
-class PlayerIdTest {
+public class PlayerIdTest {
 
     @Nested
-    class ValueOf {
+    public class ValueOf {
 
         @Test
-        void happyFlow() {
+        public void happyFlow() {
             PlayerId id = PlayerId.valueOf(5);
             assertEquals(5, id.value);
         }
     }
 
     @Nested
-    class IsWorld {
+    public class IsWorld {
 
         @Test
-        void worldValue() {
+        public void worldValue() {
             PlayerId id = PlayerId.valueOf(0);
             assertTrue(id.isWorld());
         }
 
         @Test
-        void wrongValue() {
+        public void wrongValue() {
             PlayerId id = PlayerId.valueOf(5);
             assertFalse(id.isWorld());
         }
 
         @Test
-        void worldConstant() {
+        public void worldConstant() {
             PlayerId id = PlayerId.WORLD;
             assertTrue(id.isWorld());
         }
 
         @Test
-        void wrongIntParam() {
+        public void wrongIntParam() {
             assertFalse(PlayerId.isWorld(1));
         }
 
         @Test
-        void worldIntParam() {
+        public void worldIntParam() {
             assertTrue(PlayerId.isWorld(0));
         }
 
         @Test
-        void wrongIdParam() {
+        public void wrongIdParam() {
             assertFalse(PlayerId.isWorld(PlayerId.valueOf(2)));
         }
 
         @Test
-        void worldIdParam() {
+        public void worldIdParam() {
             assertTrue(PlayerId.isWorld(PlayerId.valueOf(0)));
         }
 
         @Test
-        void nullIdParam() {
+        public void nullIdParam() {
             assertThrows(ImplementationException.class, () -> PlayerId.isWorld(null));
         }
     }
 
     @Nested
-    class IsNegative {
+    public class IsNegative {
 
         @Test
-        void negative() {
+        public void negative() {
             assertTrue(PlayerId.valueOf(-1).isNegative());
         }
 
         @Test
-        void positive() {
+        public void positive() {
             assertFalse(PlayerId.valueOf(1).isNegative());
         }
 
         @Test
-        void zero() {
+        public void zero() {
             assertFalse(PlayerId.valueOf(0).isNegative());
         }
 
     }
 
     @Nested
-    class HashCode {
+    public class HashCode {
 
         @Test
-        void happyFlow() {
+        public void happyFlow() {
             assertEquals(-5, PlayerId.valueOf(-5).hashCode());
         }
     }
 
     @Nested
-    class Equals {
+    public class Equals {
 
         @Test
-        void happyFlow() {
+        public void happyFlow() {
             PlayerId id = PlayerId.valueOf(5);
             PlayerId id2 = PlayerId.valueOf(5);
             assertTrue(id.equals(id2));
         }
 
         @Test
-        void sameObject() {
+        public void sameObject() {
             PlayerId id = PlayerId.valueOf(5);
             assertTrue(id.equals(id));
         }
 
 
         @Test
-        void notSame() {
+        public void notSame() {
             PlayerId id = PlayerId.valueOf(5);
             PlayerId id2 = PlayerId.valueOf(6);
             assertFalse(id.equals(id2));
         }
 
         @Test
-        void otherType() {
+        public void otherType() {
             PlayerId id = PlayerId.valueOf(5);
             assertFalse(id.equals("ok"));
         }
 
         @Test
-        void withNull() {
+        public void withNull() {
             PlayerId id = PlayerId.valueOf(5);
             assertFalse(id.equals(null));
         }
     }
 
     @Nested
-    class ToString {
+    public class ToString {
 
         @Test
-        void happyFlow() {
+        public void happyFlow() {
             assertEquals("-5", PlayerId.valueOf(-5).toString());
         }
     }
