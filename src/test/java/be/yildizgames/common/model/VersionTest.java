@@ -1,9 +1,9 @@
 /*
  * This file is part of the Yildiz-Engine project, licenced under the MIT License  (MIT)
  *
- *  Copyright (c) 2018 Grégory Van den Borre
+ *  Copyright (c) 2019 Grégory Van den Borre
  *
- *  More infos available: https://www.yildiz-games.be
+ *  More infos available: https://engine.yildiz-games.be
  *
  *  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
  *  documentation files (the "Software"), to deal in the Software without restriction, including without
@@ -31,30 +31,30 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-final class VersionTest {
+public final class VersionTest {
 
     @Test
-    void testVersionMajor() {
+    public void testVersionMajor() {
         assertThrows(IllegalArgumentException.class, () -> new Version(VersionType.RELEASE, -1, 1, 1, 0));
     }
 
     @Test
-    void testVersionMinor() {
+    public void testVersionMinor() {
         assertThrows(IllegalArgumentException.class, () -> new Version(VersionType.RELEASE, 1, -1, 1, 0));
     }
 
     @Test
-    void testVersionSub() {
+    public void testVersionSub() {
         assertThrows(IllegalArgumentException.class, () -> new Version(VersionType.RELEASE, 1, 1, -1, 0));
     }
 
     @Test
-    void testVersionRev() {
+    public void testVersionRev() {
         assertThrows(IllegalArgumentException.class, () -> new Version(VersionType.RELEASE, 1, 1, 1, -1));
     }
 
     @Test
-    void testGetMajor() {
+    public void testGetMajor() {
         final int i1 = 1;
         final int i2 = 2;
         final int i3 = 3;
@@ -64,7 +64,7 @@ final class VersionTest {
     }
 
     @Test
-    void testGetMinor() {
+    public void testGetMinor() {
         final int i1 = 1;
         final int i2 = 2;
         final int i3 = 3;
@@ -74,7 +74,7 @@ final class VersionTest {
     }
 
     @Test
-    void testGetSub() {
+    public void testGetSub() {
         final int i1 = 1;
         final int i2 = 2;
         final int i3 = 3;
@@ -84,7 +84,7 @@ final class VersionTest {
     }
 
     @Test
-    void testGetRev() {
+    public void testGetRev() {
         final int i1 = 1;
         final int i2 = 2;
         final int i3 = 3;
@@ -94,7 +94,7 @@ final class VersionTest {
     }
 
     @Test
-    void testEqualsObject() {
+    public void testEqualsObject() {
         final int i1 = 1;
         final int i2 = 2;
         final int i3 = 3;
@@ -113,7 +113,7 @@ final class VersionTest {
     }
 
     @Test
-    void testHashCode() {
+    public void testHashCode() {
         final Integer i1 = 1;
         final Integer i2 = 2;
         final Integer i3 = 3;
@@ -124,7 +124,7 @@ final class VersionTest {
     }
 
     @Test
-    void testToString() {
+    public void testToString() {
         final int i1 = 1;
         final int i2 = 2;
         final int i3 = 3;
@@ -134,26 +134,26 @@ final class VersionTest {
     }
 
     @Test
-    void testGetType() {
+    public void testGetType() {
         assertEquals(VersionType.RELEASE, new Version(VersionType.RELEASE, 0, 0, 0, 0).getType());
         assertEquals(VersionType.BETA, new Version(VersionType.BETA, 0, 0, 0, 0).getType());
         assertEquals(VersionType.ALPHA, new Version(VersionType.ALPHA, 0, 0, 0, 0).getType());
     }
 
     @Test
-    void valueOf() {
+    public void valueOf() {
         assertEquals(VersionType.ALPHA, VersionType.valueOf(0));
         assertEquals(VersionType.BETA, VersionType.valueOf(1));
         assertEquals(VersionType.RELEASE, VersionType.valueOf(2));
     }
 
     @Test
-    void invalidValueOf() {
+    public void invalidValueOf() {
         assertThrows(IllegalArgumentException.class, () -> VersionType.valueOf(3));
     }
 
     @Test
-    void testAlphaConstructor() {
+    public void testAlphaConstructor() {
         Version v = Version.alpha(1,2,3,4);
         assertEquals(VersionType.ALPHA, v.getType());
         assertEquals(1, v.getMajor());
@@ -163,7 +163,7 @@ final class VersionTest {
     }
 
     @Test
-    void testBetaConstructor() {
+    public void testBetaConstructor() {
         Version v = Version.beta(1,2,3,4);
         assertEquals(VersionType.BETA, v.getType());
         assertEquals(1, v.getMajor());
@@ -173,7 +173,7 @@ final class VersionTest {
     }
 
     @Test
-    void testReleaseConstructor() {
+    public void testReleaseConstructor() {
         Version v = Version.release(1,2,3,4);
         assertEquals(VersionType.RELEASE, v.getType());
         assertEquals(1, v.getMajor());

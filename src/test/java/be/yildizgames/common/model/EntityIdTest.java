@@ -1,9 +1,9 @@
 /*
  * This file is part of the Yildiz-Engine project, licenced under the MIT License  (MIT)
  *
- *  Copyright (c) 2018 Grégory Van den Borre
+ *  Copyright (c) 2019 Grégory Van den Borre
  *
- *  More infos available: https://www.yildiz-games.be
+ *  More infos available: https://engine.yildiz-games.be
  *
  *  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
  *  documentation files (the "Software"), to deal in the Software without restriction, including without
@@ -41,11 +41,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  *
  * @author Grégory Van den Borre
  */
-final class EntityIdTest {
+public final class EntityIdTest {
 
     /***/
     @Test
-    void testEquals() {
+    public void testEquals() {
         final long value = 5;
         assertEquals(EntityId.valueOf(value), EntityId.valueOf(value));
         assertNotEquals(EntityId.valueOf(value), EntityId.valueOf(value + 1));
@@ -59,7 +59,7 @@ final class EntityIdTest {
 
     /***/
     @Test
-    void testIsNegative() {
+    public void testIsNegative() {
         assertTrue(EntityId.valueOf(-5L).isNegative());
         assertFalse(EntityId.valueOf(0L).isNegative());
         assertFalse(EntityId.valueOf(5L).isNegative());
@@ -67,7 +67,7 @@ final class EntityIdTest {
 
     /***/
     @Test
-    void testIsWorld() {
+    public void testIsWorld() {
         final long value = EntityId.WORLD.value;
         assertTrue(EntityId.valueOf(value).isWorld());
         assertTrue(EntityId.isWorld(value));
@@ -80,7 +80,7 @@ final class EntityIdTest {
 
     /***/
     @Test
-    void testToString() {
+    public void testToString() {
         assertEquals("5", EntityId.valueOf(5L).toString());
     }
 }

@@ -1,9 +1,9 @@
 /*
  * This file is part of the Yildiz-Engine project, licenced under the MIT License  (MIT)
  *
- *  Copyright (c) 2018 Grégory Van den Borre
+ *  Copyright (c) 2019 Grégory Van den Borre
  *
- *  More infos available: https://www.yildiz-games.be
+ *  More infos available: https://engine.yildiz-games.be
  *
  *  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
  *  documentation files (the "Software"), to deal in the Software without restriction, including without
@@ -35,70 +35,70 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 /**
  * @author Grégory Van den Borre
  */
-class WorldIdTest {
+public class WorldIdTest {
 
     @Nested
-    class IsWorld {
+    public class IsWorld {
 
         @Test
-        void happyFlow() {
+        public void happyFlow() {
             assertTrue(WorldId.valueOf(0).isWorld());
         }
 
         @Test
-        void notWorld() {
+        public void notWorld() {
             assertFalse(WorldId.valueOf(1).isWorld());
         }
     }
 
     @Nested
-    class IsWorldId {
+    public class IsWorldId {
 
         @Test
-        void happyFlow() {
+        public void happyFlow() {
             assertTrue(WorldId.isWorld(WorldId.valueOf(0)));
         }
 
         @Test
-        void wrongValue() {
+        public void wrongValue() {
             assertFalse(WorldId.isWorld(WorldId.valueOf(1)));
         }
 
         @Test
-        void withNull() {
+        public void withNull() {
             assertThrows(ImplementationException.class, () -> WorldId.isWorld(null));
         }
     }
 
     @Nested
-    class IsWorldLong {
+    public class IsWorldLong {
 
         @Test
-        void happyFlow() {
+        public void happyFlow() {
             assertTrue(WorldId.isWorld(0));
         }
 
         @Test
-        void wrongValue() {
+        public void wrongValue() {
             assertFalse(WorldId.isWorld(1));
         }
     }
 
     @Nested
-    class IsNegative {
+    public class IsNegative {
 
         @Test
-        void happyFlow() {
+        public void happyFlow() {
             assertTrue(WorldId.valueOf(-1).isNegative());
         }
 
         @Test
-        void wrongValue() {
+        public void wrongValue() {
             assertFalse(WorldId.valueOf(1).isNegative());
         }
 
         @Test
-        void zero() {
+        public void zero() {
             assertFalse(WorldId.valueOf(0).isNegative());
         }
     }
