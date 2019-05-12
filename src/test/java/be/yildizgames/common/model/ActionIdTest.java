@@ -34,6 +34,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
+ * Test class for ActionId class.
  * @author Grégory Van den Borre
  */
 public class ActionIdTest {
