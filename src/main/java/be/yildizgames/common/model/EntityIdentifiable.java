@@ -26,6 +26,7 @@ package be.yildizgames.common.model;
 
 /**
  * Provide the id from this Entity.
+ *
  * @author Grégory Van den Borre
  */
 @FunctionalInterface

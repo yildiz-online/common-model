@@ -31,4 +31,5 @@ package be.yildizgames.common.model;
 public interface PlayerCreationListener {
 
     void playerCreated(PlayerId player);
+
 }
