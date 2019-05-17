@@ -104,28 +104,28 @@ public final class Version {
         return new Version(VersionType.RELEASE, major, minor, sub, rev);
     }
 
-    public int getMajor() {
+    public final int getMajor() {
         return major;
     }
 
-    public int getMinor() {
+    public final int getMinor() {
         return minor;
     }
 
-    public int getSub() {
+    public final int getSub() {
         return sub;
     }
 
-    public int getRev() {
+    public final int getRev() {
         return rev;
     }
 
-    public VersionType getType() {
+    public final VersionType getType() {
         return type;
     }
 
     @Override
-    public boolean equals(Object o) {
+    public final boolean equals(Object o) {
         if (this == o) {
             return true;
         }
@@ -138,7 +138,7 @@ public final class Version {
     }
 
     @Override
-    public int hashCode() {
+    public final int hashCode() {
         int result = major;
         result = 31 * result + minor;
         result = 31 * result + sub;
@@ -152,7 +152,7 @@ public final class Version {
      * the revision.
      */
     @Override
-    public String toString() {
+    public final String toString() {
         return this.type + " " + this.major + "." + this.minor + "." + this.sub + "_" + this.rev;
     }
 
