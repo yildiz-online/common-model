@@ -25,6 +25,7 @@
 module be.yildizgames.common.model {
 
     requires be.yildizgames.common.exception;
+    requires be.yildizgames.common.util;
 
     exports be.yildizgames.common.model;
 }
