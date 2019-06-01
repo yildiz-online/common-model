@@ -22,9 +22,51 @@
  *
  */
 
-module be.yildizgames.common.model {
+package be.yildizgames.common.model;
 
-    requires be.yildizgames.common.exception;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
 
-    exports be.yildizgames.common.model;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+
+/**
+ * @author Grégory Van den Borre
+ */
+public class ValueObjectTest {
+
+    @Nested
+    public class Constructor {
+
+       @Test
+       public void happyFlow() {
+           ValueObject v = new ValueObject(5);
+           assertEquals(5, v.value);
+       }
+    }
+
+    @Nested
+    public class HashCodeEquals {
+
+        @Test
+        public void sameValue() {
+            ValueObject v = new ValueObject(5);
+            ValueObject v2 = new ValueObject(5);
+            assertEquals(v, v2);
+        }
+
+        @Test
+        public void differentValue() {
+            ValueObject v = new ValueObject(5);
+            ValueObject v2 = new ValueObject(6);
+            assertNotEquals(v, v2);
+        }
+
+        @Test
+        public void base() {
+            BaseEqualsCheck<ValueObject> b = new BaseEqualsCheck<>(new ValueObject(5), new ValueObject(5), new ValueObject(6));
+            b.all();
+        }
+    }
+
 }

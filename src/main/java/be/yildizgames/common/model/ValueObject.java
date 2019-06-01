@@ -22,9 +22,34 @@
  *
  */
 
-module be.yildizgames.common.model {
+package be.yildizgames.common.model;
 
-    requires be.yildizgames.common.exception;
+/**
+ * @author Grégory Van den Borre
+ */
+class ValueObject {
 
-    exports be.yildizgames.common.model;
+    /**
+     * Value.
+     */
+    public final int value;
+
+    protected ValueObject(int value) {
+        this.value = value;
+    }
+
+    @Override
+    public final boolean equals(Object o) {
+        return this == o || !(o == null || getClass() != o.getClass()) && value == ((ValueObject) o).value;
+    }
+
+    @Override
+    public final int hashCode() {
+        return value;
+    }
+
+    @Override
+    public final String toString() {
+        return String.valueOf(this.value);
+    }
 }

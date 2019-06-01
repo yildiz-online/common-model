@@ -24,8 +24,6 @@
  */
 package be.yildizgames.common.model;
 
-import be.yildizgames.common.util.ValueObject;
-
 public class BonusId extends ValueObject {
 
     private BonusId(int value) {
