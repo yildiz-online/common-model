@@ -26,7 +26,6 @@ package be.yildizgames.common.model;
 
 import be.yildizgames.common.exception.implementation.ImplementationException;
 
-import java.io.Serializable;
 import java.security.InvalidParameterException;
 import java.util.HashMap;
 import java.util.Map;
@@ -38,10 +37,7 @@ import java.util.Map;
  *
  * @author Grégory Van den Borre
  */
-public final class EntityId implements Serializable {
-
-    /***/
-    private static final long serialVersionUID = -1300879297702695817L;
+public final class EntityId {
 
     /**
      * Constant value for the world.

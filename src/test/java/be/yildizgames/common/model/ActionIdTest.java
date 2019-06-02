@@ -131,43 +131,4 @@ public class ActionIdTest {
             assertFalse(id.isNegative());
         }
     }
-
-    @Nested
-    public class HashCode {
-
-        @Test
-        public void happyFlow() {
-            ActionId id = ActionId.valueOf(5);
-            ActionId id2 = ActionId.valueOf(5);
-            assertEquals(id.hashCode(), id2.hashCode());
-        }
-    }
-
-    @Nested
-    public class Equals {
-
-        @Test
-        public void happyFlow() {
-            ActionId id = ActionId.valueOf(5);
-            ActionId id2 = ActionId.valueOf(5);
-            assertEquals(id, id2);
-        }
-
-        @Test
-        public void notSame() {
-            ActionId id = ActionId.valueOf(5);
-            ActionId id2 = ActionId.valueOf(6);
-            Assertions.assertNotEquals(id, id2);
-        }
-    }
-
-    @Nested
-    public class ToString {
-
-        @Test
-        public void happyFlow() {
-            ActionId id = ActionId.valueOf(8);
-            assertEquals("8", id.toString());
-        }
-    }
 }

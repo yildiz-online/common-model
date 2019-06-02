@@ -34,7 +34,7 @@ import java.util.Map;
  *
  * @author Grégory Van den Borre
  */
-public final class WorldId {
+public final class WorldId extends ValueObject{
 
     /**
      * List of all registered id with their value as key.
@@ -52,19 +52,13 @@ public final class WorldId {
     public static final WorldId WORLD = new WorldId(WorldId.WORLD_VALUE);
 
     /**
-     * Value.
-     */
-    public final int value;
-
-    /**
      * Full constructor, private to prevent use, to create an id, retrieve it from Id.get.
      *
      * @param idValue Initialize the wrapped value.
      */
     private WorldId(final int idValue) {
-        super();
-        this.value = idValue;
-        WorldId.LIST.putIfAbsent(this.value, this);
+        super(idValue);
+        WorldId.LIST.putIfAbsent(idValue, this);
     }
 
     /**
@@ -115,20 +109,5 @@ public final class WorldId {
      */
     public final boolean isWorld() {
         return this.value == WorldId.WORLD_VALUE;
-    }
-
-    @Override
-    public final boolean equals(Object o) {
-        return this == o || !(o == null || getClass() != o.getClass()) && value == ((WorldId) o).value;
-    }
-
-    @Override
-    public final int hashCode() {
-        return value;
-    }
-
-    @Override
-    public final String toString() {
-        return String.valueOf(this.value);
     }
 }
