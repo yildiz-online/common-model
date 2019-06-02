@@ -117,7 +117,7 @@ public final class EntityId implements Serializable {
     /**
      * @return <code>true</code> if id value is lower than 0.
      */
-    public boolean isNegative() {
+    public final boolean isNegative() {
         return this.value < 0;
     }
 
@@ -126,12 +126,12 @@ public final class EntityId implements Serializable {
      *
      * @return <code>true</code> if this id is world.
      */
-    public boolean isWorld() {
+    public final boolean isWorld() {
         return this.value == EntityId.WORLD_VALUE;
     }
 
     @Override
-    public boolean equals(final Object obj) {
+    public final boolean equals(final Object obj) {
         if (!(obj instanceof EntityId)) {
             throw new InvalidParameterException("wrong type");
         }
@@ -139,7 +139,7 @@ public final class EntityId implements Serializable {
     }
 
     @Override
-    public int hashCode() {
+    public final int hashCode() {
         return this.hashCode;
     }
 
@@ -147,7 +147,7 @@ public final class EntityId implements Serializable {
      * @return Id value as a String.
      */
     @Override
-    public String toString() {
+    public final String toString() {
         return String.valueOf(this.value);
     }
 

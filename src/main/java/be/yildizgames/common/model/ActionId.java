@@ -104,7 +104,7 @@ public class ActionId {
     /**
      * @return <code>true</code> if id value is lower than 0.
      */
-    public boolean isNegative() {
+    public final boolean isNegative() {
         return this.value < 0;
     }
 
@@ -113,7 +113,7 @@ public class ActionId {
      *
      * @return <code>true</code> if this id is world.
      */
-    public boolean isWorld() {
+    public  final boolean isWorld() {
         return this.value == ActionId.WORLD_VALUE;
     }
 

@@ -24,12 +24,60 @@
 
 package be.yildizgames.common.model;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 /**
  * @author Grégory Van den Borre
  */
-@FunctionalInterface
-public interface PlayerCreationListener {
+public class BaseEqualsCheck<T>{
 
-    void playerCreated(PlayerId player);
+    private final T baseObject;
+    private final T same;
+    private final T different;
+
+    public BaseEqualsCheck(T baseObject, T same, T different) {
+        super();
+        this.baseObject = baseObject;
+        this.same = same;
+        this.different = different;
+    }
+
+    public void all() {
+        equalsSame();
+        equalsSameInstance();
+        equalsDifferent();
+        equalsDifferentType();
+        equalsNull();
+        hashcodeSame();
+        hashcodeDifferent();
+    }
+
+    public void equalsSame() {
+        assertTrue(baseObject.equals(same));
+    }
+
+    public void equalsSameInstance() {
+        assertTrue(baseObject.equals(baseObject));
+    }
+
+    public void equalsDifferent() {
+        assertFalse(baseObject.equals(different));
+    }
+
+    public void equalsNull() {
+        assertFalse(baseObject.equals(null));
+    }
+
+    public void equalsDifferentType() {
+        assertFalse(baseObject.equals("ok"));
+    }
+
+    public void hashcodeSame() {
+        assertEquals(baseObject.hashCode(), same.hashCode());
+    }
+
+    public void hashcodeDifferent() {
+        assertNotEquals(baseObject.hashCode(), different.hashCode());
+    }
 
 }

@@ -27,9 +27,29 @@ package be.yildizgames.common.model;
 /**
  * @author Grégory Van den Borre
  */
-@FunctionalInterface
-public interface PlayerCreationListener {
+class ValueObject {
 
-    void playerCreated(PlayerId player);
+    /**
+     * Value.
+     */
+    public final int value;
 
+    protected ValueObject(int value) {
+        this.value = value;
+    }
+
+    @Override
+    public final boolean equals(Object o) {
+        return this == o || !(o == null || getClass() != o.getClass()) && value == ((ValueObject) o).value;
+    }
+
+    @Override
+    public final int hashCode() {
+        return value;
+    }
+
+    @Override
+    public final String toString() {
+        return String.valueOf(this.value);
+    }
 }
