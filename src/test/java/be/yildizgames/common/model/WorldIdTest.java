@@ -24,11 +24,12 @@
 
 package be.yildizgames.common.model;
 
-import be.yildizgames.common.exception.implementation.ImplementationException;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author Grégory Van den Borre
@@ -64,7 +65,7 @@ public class WorldIdTest {
 
         @Test
         public void withNull() {
-            assertThrows(ImplementationException.class, () -> WorldId.isWorld(null));
+            assertThrows(NullPointerException.class, () -> WorldId.isWorld(null));
         }
     }
 

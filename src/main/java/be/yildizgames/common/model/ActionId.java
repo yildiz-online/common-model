@@ -24,8 +24,6 @@
 
 package be.yildizgames.common.model;
 
-import be.yildizgames.common.exception.implementation.ImplementationException;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -78,10 +76,9 @@ public class ActionId extends ValueObject {
      *
      * @param id Id to check.
      * @return <code>true</code> if Id matches world Id.
-     * @throws ImplementationException If id is null.
+     * @throws NullPointerException If id is null.
      */
     public static boolean isWorld(final ActionId id) {
-        ImplementationException.throwForNull(id);
         return id.value == ActionId.WORLD_VALUE;
     }
 

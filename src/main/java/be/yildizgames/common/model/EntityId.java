@@ -24,9 +24,6 @@
 
 package be.yildizgames.common.model;
 
-import be.yildizgames.common.exception.implementation.ImplementationException;
-
-import java.security.InvalidParameterException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -96,7 +93,6 @@ public final class EntityId {
      * @return <code>true</code> if Id matches world Id.
      */
     public static boolean isWorld(final EntityId id) {
-        ImplementationException.throwForNull(id);
         return id.value == EntityId.WORLD_VALUE;
     }
 
@@ -129,7 +125,7 @@ public final class EntityId {
     @Override
     public final boolean equals(final Object obj) {
         if (!(obj instanceof EntityId)) {
-            throw new InvalidParameterException("wrong type");
+            throw new IllegalArgumentException("wrong type");
         }
         return this == obj;
     }
