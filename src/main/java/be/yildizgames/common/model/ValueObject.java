@@ -27,7 +27,7 @@ package be.yildizgames.common.model;
 /**
  * @author Grégory Van den Borre
  */
-class ValueObject {
+public class ValueObject {
 
     /**
      * Value.
