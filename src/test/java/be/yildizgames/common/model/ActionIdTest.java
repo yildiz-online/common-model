@@ -24,7 +24,6 @@
 
 package be.yildizgames.common.model;
 
-import be.yildizgames.common.exception.implementation.ImplementationException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -107,7 +106,7 @@ public class ActionIdTest {
 
         @Test
         public void fromIdNull() {
-            Assertions.assertThrows(ImplementationException.class, () -> ActionId.isWorld(null));
+            Assertions.assertThrows(NullPointerException.class, () -> ActionId.isWorld(null));
         }
 
         @Test
@@ -129,45 +128,6 @@ public class ActionIdTest {
         public void not() {
             ActionId id = ActionId.valueOf(5);
             assertFalse(id.isNegative());
-        }
-    }
-
-    @Nested
-    public class HashCode {
-
-        @Test
-        public void happyFlow() {
-            ActionId id = ActionId.valueOf(5);
-            ActionId id2 = ActionId.valueOf(5);
-            assertEquals(id.hashCode(), id2.hashCode());
-        }
-    }
-
-    @Nested
-    public class Equals {
-
-        @Test
-        public void happyFlow() {
-            ActionId id = ActionId.valueOf(5);
-            ActionId id2 = ActionId.valueOf(5);
-            assertEquals(id, id2);
-        }
-
-        @Test
-        public void notSame() {
-            ActionId id = ActionId.valueOf(5);
-            ActionId id2 = ActionId.valueOf(6);
-            Assertions.assertNotEquals(id, id2);
-        }
-    }
-
-    @Nested
-    public class ToString {
-
-        @Test
-        public void happyFlow() {
-            ActionId id = ActionId.valueOf(8);
-            assertEquals("8", id.toString());
         }
     }
 }

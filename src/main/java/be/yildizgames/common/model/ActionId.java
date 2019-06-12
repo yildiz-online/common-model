@@ -24,8 +24,6 @@
 
 package be.yildizgames.common.model;
 
-import be.yildizgames.common.exception.implementation.ImplementationException;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,7 +32,7 @@ import java.util.Map;
  *
  * @author Grégory Van den Borre
  */
-public class ActionId {
+public class ActionId extends ValueObject {
 
     /**
      * List of all registered id with their value as key.
@@ -51,19 +49,13 @@ public class ActionId {
     public static final ActionId WORLD = new ActionId(ActionId.WORLD_VALUE);
 
     /**
-     * Value.
-     */
-    public final int value;
-
-    /**
      * Full constructor, private to prevent use, to create an id, retrieve it from Id.get.
      *
      * @param idValue Initialize the wrapped value.
      */
-    protected ActionId(final int idValue) {
-        super();
-        this.value = idValue;
-        ActionId.LIST.putIfAbsent(this.value, this);
+    private ActionId(final int idValue) {
+        super(idValue);
+        ActionId.LIST.putIfAbsent(idValue, this);
     }
 
     /**
@@ -84,10 +76,9 @@ public class ActionId {
      *
      * @param id Id to check.
      * @return <code>true</code> if Id matches world Id.
-     * @throws ImplementationException If id is null.
+     * @throws NullPointerException If id is null.
      */
     public static boolean isWorld(final ActionId id) {
-        ImplementationException.throwForNull(id);
         return id.value == ActionId.WORLD_VALUE;
     }
 
@@ -115,21 +106,6 @@ public class ActionId {
      */
     public  final boolean isWorld() {
         return this.value == ActionId.WORLD_VALUE;
-    }
-
-    @Override
-    public final boolean equals(Object o) {
-        return this == o || !(o == null || getClass() != o.getClass()) && value == ((ActionId) o).value;
-    }
-
-    @Override
-    public final int hashCode() {
-        return value;
-    }
-
-    @Override
-    public final String toString() {
-        return String.valueOf(this.value);
     }
 
 }

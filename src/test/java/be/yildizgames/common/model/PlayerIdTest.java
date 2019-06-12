@@ -25,11 +25,13 @@
 package be.yildizgames.common.model;
 
 
-import be.yildizgames.common.exception.implementation.ImplementationException;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author Grégory Van den Borre
@@ -89,7 +91,7 @@ public class PlayerIdTest {
 
         @Test
         public void nullIdParam() {
-            assertThrows(ImplementationException.class, () -> PlayerId.isWorld(null));
+            assertThrows(NullPointerException.class, () -> PlayerId.isWorld(null));
         }
     }
 
@@ -111,60 +113,5 @@ public class PlayerIdTest {
             assertFalse(PlayerId.valueOf(0).isNegative());
         }
 
-    }
-
-    @Nested
-    public class HashCode {
-
-        @Test
-        public void happyFlow() {
-            assertEquals(-5, PlayerId.valueOf(-5).hashCode());
-        }
-    }
-
-    @Nested
-    public class Equals {
-
-        @Test
-        public void happyFlow() {
-            PlayerId id = PlayerId.valueOf(5);
-            PlayerId id2 = PlayerId.valueOf(5);
-            assertTrue(id.equals(id2));
-        }
-
-        @Test
-        public void sameObject() {
-            PlayerId id = PlayerId.valueOf(5);
-            assertTrue(id.equals(id));
-        }
-
-
-        @Test
-        public void notSame() {
-            PlayerId id = PlayerId.valueOf(5);
-            PlayerId id2 = PlayerId.valueOf(6);
-            assertFalse(id.equals(id2));
-        }
-
-        @Test
-        public void otherType() {
-            PlayerId id = PlayerId.valueOf(5);
-            assertFalse(id.equals("ok"));
-        }
-
-        @Test
-        public void withNull() {
-            PlayerId id = PlayerId.valueOf(5);
-            assertFalse(id.equals(null));
-        }
-    }
-
-    @Nested
-    public class ToString {
-
-        @Test
-        public void happyFlow() {
-            assertEquals("-5", PlayerId.valueOf(-5).toString());
-        }
     }
 }

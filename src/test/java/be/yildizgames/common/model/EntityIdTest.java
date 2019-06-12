@@ -24,13 +24,16 @@
 
 package be.yildizgames.common.model;
 
-import be.yildizgames.common.exception.implementation.ImplementationException;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Test class for EntityId.
@@ -71,7 +74,7 @@ public final class EntityIdTest {
         assertFalse(EntityId.valueOf(5L).isWorld());
         assertFalse(EntityId.isWorld(1));
         assertFalse(EntityId.isWorld(EntityId.valueOf(1L)));
-        assertThrows(ImplementationException.class, () -> EntityId.isWorld(null));
+        assertThrows(NullPointerException.class, () -> EntityId.isWorld(null));
     }
 
     /***/

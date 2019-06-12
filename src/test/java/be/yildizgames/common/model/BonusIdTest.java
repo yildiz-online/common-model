@@ -28,57 +28,30 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-
 /**
  * @author Grégory Van den Borre
  */
-public class ValueObjectTest {
+public class BonusIdTest {
 
     @Nested
-    public class Constructor {
-
-       @Test
-       public void happyFlow() {
-           ValueObject v = new ValueObject(5);
-           assertEquals(5, v.value);
-       }
-    }
-
-    @Nested
-    public class HashCodeEquals {
-
-        @Test
-        public void sameValue() {
-            ValueObject v = new ValueObject(5);
-            ValueObject v2 = new ValueObject(5);
-            assertEquals(v, v2);
-        }
-
-        @Test
-        public void differentValue() {
-            ValueObject v = new ValueObject(5);
-            ValueObject v2 = new ValueObject(6);
-            assertNotEquals(v, v2);
-        }
-
-        @Test
-        public void base() {
-            BaseEqualsCheck<ValueObject> b = new BaseEqualsCheck<>(new ValueObject(5), new ValueObject(5), new ValueObject(6));
-            b.all();
-        }
-    }
-
-    @Nested
-    public class ToString {
+    public class ValueOf{
 
         @Test
         public void happyFlow() {
-            ValueObject object = new ValueObject(3);
-            Assertions.assertEquals("3", object.toString());
+            BonusId bonusId = BonusId.valueOf(5);
+            Assertions.assertEquals(5 , bonusId.value);
         }
 
-    }
+        @Test
+        public void zero() {
+            BonusId bonusId = BonusId.valueOf(0);
+            Assertions.assertEquals(0 , bonusId.value);
+        }
 
+        @Test
+        public void negative() {
+            BonusId bonusId = BonusId.valueOf(-1);
+            Assertions.assertEquals(-1 , bonusId.value);
+        }
+    }
 }

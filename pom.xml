@@ -30,7 +30,7 @@
     <url>https://bitbucket.org/yildiz-engine-team/common-model</url>
 
     <artifactId>common-model</artifactId>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
 
     <packaging>jar</packaging>
     <inceptionYear>2017</inceptionYear>
@@ -42,15 +42,10 @@
     <parent>
         <artifactId>parent</artifactId>
         <groupId>be.yildiz-games</groupId>
-        <version>3.0.5</version>
+        <version>3.0.6</version>
     </parent>
 
   <dependencies>
-    <dependency>
-      <groupId>be.yildiz-games</groupId>
-      <artifactId>common-exception</artifactId>
-      <version>1.0.4</version>
-    </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
