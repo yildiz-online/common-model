@@ -30,7 +30,7 @@
     <url>https://bitbucket.org/yildiz-engine-team/common-model</url>
 
     <artifactId>common-model</artifactId>
-    <version>1.0.6</version>
+    <version>1.0.7</version>
 
     <packaging>jar</packaging>
     <inceptionYear>2017</inceptionYear>
@@ -42,8 +42,12 @@
     <parent>
         <artifactId>parent</artifactId>
         <groupId>be.yildiz-games</groupId>
-        <version>3.0.6</version>
+        <version>3.0.9</version>
     </parent>
+
+  <properties>
+    <java.version>11</java.version>
+  </properties>
 
   <dependencies>
     <dependency>

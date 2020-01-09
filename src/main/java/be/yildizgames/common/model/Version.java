@@ -159,7 +159,7 @@ public final class Version {
     /**
      * Possible versions type.
      *
-     * @author Van den Borre Grégory
+     * @author Grégory Van den Borre
      */
     public enum VersionType {
 

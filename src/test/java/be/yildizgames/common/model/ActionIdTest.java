@@ -52,7 +52,7 @@ public class ActionIdTest {
         public void cached() {
             ActionId id = ActionId.valueOf(2000);
             ActionId id2 = ActionId.valueOf(2000);
-            Assertions.assertTrue(id == id2);
+            Assertions.assertSame(id, id2);
         }
     }
 
@@ -70,7 +70,7 @@ public class ActionIdTest {
         public void cached() {
             ActionId id = ActionId.valueOf(2000);
             ActionId id2 = ActionId.valueOf(2000);
-            Assertions.assertTrue(id == id2);
+            Assertions.assertSame(id, id2);
         }
     }
 
@@ -106,6 +106,7 @@ public class ActionIdTest {
 
         @Test
         public void fromIdNull() {
+            //noinspection ResultOfMethodCallIgnored
             Assertions.assertThrows(NullPointerException.class, () -> ActionId.isWorld(null));
         }
 

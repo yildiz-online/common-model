@@ -18,7 +18,6 @@ import org.junit.jupiter.api.Test;
 /**
  * @author Grégory Van den Borre
  */
-@SuppressWarnings("boxing")
 public final class LevelTest {
 
     @SuppressWarnings("null")
