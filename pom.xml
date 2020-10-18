@@ -27,7 +27,7 @@
     <modelVersion>4.0.0</modelVersion>
     <name>Yildiz Common Model</name>
     <description>Common Model library for the yildiz project, contains model classes.</description>
-    <url>https://bitbucket.org/yildiz-engine-team/common-model</url>
+    <url>https://github.com/yildiz-online/common-model</url>
 
     <artifactId>common-model</artifactId>
     <version>1.0.8-SNAPSHOT</version>
@@ -35,9 +35,9 @@
     <packaging>jar</packaging>
     <inceptionYear>2017</inceptionYear>
     <scm>
-        <connection>scm:git:https://bitbucket.org/yildiz-engine-team/common-model</connection>
-        <developerConnection>scm:git:https://bitbucket.org/yildiz-engine-team/common-model</developerConnection>
-        <url>https://bitbucket.org/yildiz-engine-team/common-model</url>
+        <connection>scm:git:https://github.com/yildiz-online/common-model</connection>
+        <developerConnection>scm:git:https://github.com/yildiz-online/common-model</developerConnection>
+        <url>https://github.com/yildiz-online/common-model</url>
     </scm>
     <parent>
         <artifactId>parent</artifactId>
