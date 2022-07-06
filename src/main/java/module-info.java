@@ -22,7 +22,7 @@
  *
  */
 
-module be.yildizgames.common.model {
+open module be.yildizgames.common.model {
 
     exports be.yildizgames.common.model;
 }

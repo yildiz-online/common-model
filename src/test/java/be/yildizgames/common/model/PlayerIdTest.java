@@ -36,80 +36,80 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 /**
  * @author Grégory Van den Borre
  */
-public class PlayerIdTest {
+class PlayerIdTest {
 
     @Nested
-    public class ValueOf {
+    class ValueOf {
 
         @Test
-        public void happyFlow() {
+        void happyFlow() {
             PlayerId id = PlayerId.valueOf(5);
             assertEquals(5, id.value);
         }
     }
 
     @Nested
-    public class IsWorld {
+    class IsWorld {
 
         @Test
-        public void worldValue() {
+        void worldValue() {
             PlayerId id = PlayerId.valueOf(0);
             assertTrue(id.isWorld());
         }
 
         @Test
-        public void wrongValue() {
+        void wrongValue() {
             PlayerId id = PlayerId.valueOf(5);
             assertFalse(id.isWorld());
         }
 
         @Test
-        public void worldConstant() {
+        void worldConstant() {
             PlayerId id = PlayerId.WORLD;
             assertTrue(id.isWorld());
         }
 
         @Test
-        public void wrongIntParam() {
+        void wrongIntParam() {
             assertFalse(PlayerId.isWorld(1));
         }
 
         @Test
-        public void worldIntParam() {
+        void worldIntParam() {
             assertTrue(PlayerId.isWorld(0));
         }
 
         @Test
-        public void wrongIdParam() {
+        void wrongIdParam() {
             assertFalse(PlayerId.isWorld(PlayerId.valueOf(2)));
         }
 
         @Test
-        public void worldIdParam() {
+        void worldIdParam() {
             assertTrue(PlayerId.isWorld(PlayerId.valueOf(0)));
         }
 
         @Test
-        public void nullIdParam() {
+        void nullIdParam() {
             assertThrows(NullPointerException.class, () -> PlayerId.isWorld(null));
         }
     }
 
     @Nested
-    public class IsNegative {
+    class IsNegative {
 
         @Test
-        public void negative() {
+        void negative() {
             assertTrue(PlayerId.valueOf(-1).isNegative());
         }
 
         @Test
-        public void positive() {
+        void positive() {
             assertFalse(PlayerId.valueOf(1).isNegative());
         }
 
         @Test
-        public void zero() {
+        void zero() {
             assertFalse(PlayerId.valueOf(0).isNegative());
         }
 

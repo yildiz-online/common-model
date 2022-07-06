@@ -34,70 +34,70 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 /**
  * @author Grégory Van den Borre
  */
-public class WorldIdTest {
+class WorldIdTest {
 
     @Nested
-    public class IsWorld {
+    class IsWorld {
 
         @Test
-        public void happyFlow() {
+        void happyFlow() {
             assertTrue(WorldId.valueOf(0).isWorld());
         }
 
         @Test
-        public void notWorld() {
+        void notWorld() {
             assertFalse(WorldId.valueOf(1).isWorld());
         }
     }
 
     @Nested
-    public class IsWorldId {
+    class IsWorldId {
 
         @Test
-        public void happyFlow() {
+        void happyFlow() {
             assertTrue(WorldId.isWorld(WorldId.valueOf(0)));
         }
 
         @Test
-        public void wrongValue() {
+        void wrongValue() {
             assertFalse(WorldId.isWorld(WorldId.valueOf(1)));
         }
 
         @Test
-        public void withNull() {
+        void withNull() {
             assertThrows(NullPointerException.class, () -> WorldId.isWorld(null));
         }
     }
 
     @Nested
-    public class IsWorldLong {
+    class IsWorldLong {
 
         @Test
-        public void happyFlow() {
+        void happyFlow() {
             assertTrue(WorldId.isWorld(0));
         }
 
         @Test
-        public void wrongValue() {
+        void wrongValue() {
             assertFalse(WorldId.isWorld(1));
         }
     }
 
     @Nested
-    public class IsNegative {
+    class IsNegative {
 
         @Test
-        public void happyFlow() {
+        void happyFlow() {
             assertTrue(WorldId.valueOf(-1).isNegative());
         }
 
         @Test
-        public void wrongValue() {
+        void wrongValue() {
             assertFalse(WorldId.valueOf(1).isNegative());
         }
 
         @Test
-        public void zero() {
+        void zero() {
             assertFalse(WorldId.valueOf(0).isNegative());
         }
     }

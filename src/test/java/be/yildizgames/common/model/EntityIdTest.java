@@ -40,11 +40,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  *
  * @author Grégory Van den Borre
  */
-public final class EntityIdTest {
+final class EntityIdTest {
 
     /***/
     @Test
-    public void testEquals() {
+    void testEquals() {
         final long value = 5;
         assertEquals(EntityId.valueOf(value), EntityId.valueOf(value));
         assertNotEquals(EntityId.valueOf(value), EntityId.valueOf(value + 1));
@@ -58,7 +58,7 @@ public final class EntityIdTest {
 
     /***/
     @Test
-    public void testIsNegative() {
+    void testIsNegative() {
         assertTrue(EntityId.valueOf(-5L).isNegative());
         assertFalse(EntityId.valueOf(0L).isNegative());
         assertFalse(EntityId.valueOf(5L).isNegative());
@@ -66,7 +66,7 @@ public final class EntityIdTest {
 
     /***/
     @Test
-    public void testIsWorld() {
+    void testIsWorld() {
         final long value = EntityId.WORLD.value;
         assertTrue(EntityId.valueOf(value).isWorld());
         assertTrue(EntityId.isWorld(value));
@@ -79,7 +79,7 @@ public final class EntityIdTest {
 
     /***/
     @Test
-    public void testToString() {
+    void testToString() {
         assertEquals("5", EntityId.valueOf(5L).toString());
     }
 }

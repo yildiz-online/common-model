@@ -29,30 +29,30 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public final class VersionTest {
+final class VersionTest {
 
     @Test
-    public void testVersionMajor() {
+    void testVersionMajor() {
         assertThrows(IllegalArgumentException.class, () -> new Version(VersionType.RELEASE, -1, 1, 1, 0));
     }
 
     @Test
-    public void testVersionMinor() {
+    void testVersionMinor() {
         assertThrows(IllegalArgumentException.class, () -> new Version(VersionType.RELEASE, 1, -1, 1, 0));
     }
 
     @Test
-    public void testVersionSub() {
+    void testVersionSub() {
         assertThrows(IllegalArgumentException.class, () -> new Version(VersionType.RELEASE, 1, 1, -1, 0));
     }
 
     @Test
-    public void testVersionRev() {
+    void testVersionRev() {
         assertThrows(IllegalArgumentException.class, () -> new Version(VersionType.RELEASE, 1, 1, 1, -1));
     }
 
     @Test
-    public void testGetMajor() {
+    void testGetMajor() {
         final int i1 = 1;
         final int i2 = 2;
         final int i3 = 3;
@@ -62,7 +62,7 @@ public final class VersionTest {
     }
 
     @Test
-    public void testGetMinor() {
+    void testGetMinor() {
         final int i1 = 1;
         final int i2 = 2;
         final int i3 = 3;
@@ -72,7 +72,7 @@ public final class VersionTest {
     }
 
     @Test
-    public void testGetSub() {
+    void testGetSub() {
         final int i1 = 1;
         final int i2 = 2;
         final int i3 = 3;
@@ -82,7 +82,7 @@ public final class VersionTest {
     }
 
     @Test
-    public void testGetRev() {
+    void testGetRev() {
         final int i1 = 1;
         final int i2 = 2;
         final int i3 = 3;
@@ -92,7 +92,7 @@ public final class VersionTest {
     }
 
     @Test
-    public void testEqualsObject() {
+    void testEqualsObject() {
         final int i1 = 1;
         final int i2 = 2;
         final int i3 = 3;
@@ -111,7 +111,7 @@ public final class VersionTest {
     }
 
     @Test
-    public void testHashCode() {
+    void testHashCode() {
         final Integer i1 = 1;
         final Integer i2 = 2;
         final Integer i3 = 3;
@@ -122,7 +122,7 @@ public final class VersionTest {
     }
 
     @Test
-    public void testToString() {
+    void testToString() {
         final int i1 = 1;
         final int i2 = 2;
         final int i3 = 3;
@@ -132,27 +132,27 @@ public final class VersionTest {
     }
 
     @Test
-    public void testGetType() {
+    void testGetType() {
         assertEquals(VersionType.RELEASE, new Version(VersionType.RELEASE, 0, 0, 0, 0).getType());
         assertEquals(VersionType.BETA, new Version(VersionType.BETA, 0, 0, 0, 0).getType());
         assertEquals(VersionType.ALPHA, new Version(VersionType.ALPHA, 0, 0, 0, 0).getType());
     }
 
     @Test
-    public void valueOf() {
+    void valueOf() {
         assertEquals(VersionType.ALPHA, VersionType.valueOf(0));
         assertEquals(VersionType.BETA, VersionType.valueOf(1));
         assertEquals(VersionType.RELEASE, VersionType.valueOf(2));
     }
 
     @Test
-    public void invalidValueOf() {
+    void invalidValueOf() {
         assertThrows(IllegalArgumentException.class, () -> VersionType.valueOf(3));
     }
 
     @Test
-    public void testAlphaConstructor() {
-        Version v = Version.alpha(1,2,3,4);
+    void testAlphaConstructor() {
+        Version v = Version.alpha(1, 2, 3, 4);
         assertEquals(VersionType.ALPHA, v.getType());
         assertEquals(1, v.getMajor());
         assertEquals(2, v.getMinor());
@@ -161,8 +161,8 @@ public final class VersionTest {
     }
 
     @Test
-    public void testBetaConstructor() {
-        Version v = Version.beta(1,2,3,4);
+    void testBetaConstructor() {
+        Version v = Version.beta(1, 2, 3, 4);
         assertEquals(VersionType.BETA, v.getType());
         assertEquals(1, v.getMajor());
         assertEquals(2, v.getMinor());
@@ -171,8 +171,8 @@ public final class VersionTest {
     }
 
     @Test
-    public void testReleaseConstructor() {
-        Version v = Version.release(1,2,3,4);
+    void testReleaseConstructor() {
+        Version v = Version.release(1, 2, 3, 4);
         assertEquals(VersionType.RELEASE, v.getType());
         assertEquals(1, v.getMajor());
         assertEquals(2, v.getMinor());

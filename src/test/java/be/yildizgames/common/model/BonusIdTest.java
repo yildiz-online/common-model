@@ -31,27 +31,27 @@ import org.junit.jupiter.api.Test;
 /**
  * @author Grégory Van den Borre
  */
-public class BonusIdTest {
+class BonusIdTest {
 
     @Nested
-    public class ValueOf{
+    class ValueOf {
 
         @Test
-        public void happyFlow() {
+        void happyFlow() {
             BonusId bonusId = BonusId.valueOf(5);
-            Assertions.assertEquals(5 , bonusId.value);
+            Assertions.assertEquals(5, bonusId.value);
         }
 
         @Test
-        public void zero() {
+        void zero() {
             BonusId bonusId = BonusId.valueOf(0);
-            Assertions.assertEquals(0 , bonusId.value);
+            Assertions.assertEquals(0, bonusId.value);
         }
 
         @Test
-        public void negative() {
+        void negative() {
             BonusId bonusId = BonusId.valueOf(-1);
-            Assertions.assertEquals(-1 , bonusId.value);
+            Assertions.assertEquals(-1, bonusId.value);
         }
     }
 }

@@ -18,11 +18,11 @@ import org.junit.jupiter.api.Test;
 /**
  * @author Grégory Van den Borre
  */
-public final class LevelTest {
+final class LevelTest {
 
     @SuppressWarnings("null")
     @Test
-    public void testEnergy() {
+    void testEnergy() {
         Level d = Level.valueOf(10);
         Assertions.assertEquals(10, d.value, 0.000001f);
         d = Level.ZERO;
@@ -30,19 +30,19 @@ public final class LevelTest {
     }
 
     @Test
-    public void testEnergy2() {
+    void testEnergy2() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Level.valueOf(-10));
     }
 
     @Test
-    public void testHashCode() {
+    void testHashCode() {
         Level d1 = Level.valueOf(5);
         Level d2 = Level.valueOf(5);
         Assertions.assertEquals(d2.hashCode(), d1.hashCode());
     }
 
     @Test
-    public void testEquals() {
+    void testEquals() {
         Level d1 = Level.valueOf(5);
         Level d2 = Level.valueOf(5);
         Level d3 = Level.valueOf(6);
